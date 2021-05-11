@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'before yarn lint, run by husky git hook [pre-commit]'
+yarn lint
+yarn lint:fix
