@@ -1,9 +1,6 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  extends: [
-    "alloy",
-    "alloy/typescript"
-  ],
+  parser: '@typescript-eslint/parser',
+  extends: ['alloy', 'alloy/typescript'],
   env: {
     browser: true,
     node: true,
@@ -12,10 +9,10 @@ module.exports = {
   globals: {
     myGlobal: false
   },
-  plugins: [
-    "prettier"
-  ],
+  plugins: ['prettier'],
   rules: {
-    "prettier/prettier": "error"
+    'prettier/prettier': 'error',
+
+    '@typescript-eslint/no-empty-interface': 'off'
   }
-}
+};
