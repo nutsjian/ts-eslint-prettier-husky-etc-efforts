@@ -628,20 +628,10 @@ color-name@~1.1.4:
   resolved "https://registry.npm.taobao.org/color-name/download/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
 
-colors@~0.6.0-1:
-  version "0.6.2"
-  resolved "https://registry.npm.taobao.org/colors/download/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
-  integrity sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=
-
 commander@^7.2.0:
   version "7.2.0"
   resolved "https://registry.npm.taobao.org/commander/download/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha1-o2y1fQtQHOEI5NIFWaFQo5HZerc=
-
-commander@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/commander/download/commander-2.1.0.tgz#d121bbae860d9992a3d517ba96f56588e47c6781"
-  integrity sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=
 
 commitizen@^4.0.3:
   version "4.2.4"
@@ -692,11 +682,6 @@ conventional-changelog-conventionalcommits@^4.3.1:
     compare-func "^2.0.0"
     lodash "^4.17.15"
     q "^1.5.1"
-
-conventional-commit-types@^2.0.0:
-  version "2.3.0"
-  resolved "https://registry.npm.taobao.org/conventional-commit-types/download/conventional-commit-types-2.3.0.tgz#bc3c8ebba0a9e4b3ecc548f1d0674e251ab8be22"
-  integrity sha1-vDyOu6Cp5LPsxUjx0GdOJRq4viI=
 
 conventional-commit-types@^3.0.0:
   version "3.0.0"
@@ -1169,11 +1154,6 @@ find-node-modules@^2.1.2:
     findup-sync "^4.0.0"
     merge "^2.1.0"
 
-find-parent-dir@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npm.taobao.org/find-parent-dir/download/find-parent-dir-0.3.0.tgz#33c44b429ab2b2f0646299c5f9f718f376ff8d54"
-  integrity sha1-M8RLQpqysvBkYpnF+fcY83b/jVQ=
-
 find-root@1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/find-root/download/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
@@ -1212,14 +1192,6 @@ findup-sync@^4.0.0:
     is-glob "^4.0.0"
     micromatch "^4.0.2"
     resolve-dir "^1.0.1"
-
-findup@0.1.5:
-  version "0.1.5"
-  resolved "https://registry.npm.taobao.org/findup/download/findup-0.1.5.tgz#8ad929a3393bac627957a7e5de4623b06b0e2ceb"
-  integrity sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=
-  dependencies:
-    colors "~0.6.0-1"
-    commander "~2.1.0"
 
 flat-cache@^3.0.4:
   version "3.0.4"
@@ -2567,11 +2539,6 @@ semver-compare@^1.0.0:
   resolved "https://registry.npm.taobao.org/semver-compare/download/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
   integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
-semver-regex@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.nlark.com/semver-regex/download/semver-regex-1.0.0.tgz?cache=0&sync_timestamp=1619598330716&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsemver-regex%2Fdownload%2Fsemver-regex-1.0.0.tgz#92a4969065f9c70c694753d55248fc68f8f652c9"
-  integrity sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=
-
 "semver@2 || 3 || 4 || 5", semver@^5.5.0:
   version "5.7.1"
   resolved "https://registry.npm.taobao.org/semver/download/semver-5.7.1.tgz?cache=0&sync_timestamp=1616463540350&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver%2Fdownload%2Fsemver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
@@ -3033,16 +3000,6 @@ v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz?cache=0&sync_timestamp=1614993639567&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fv8-compile-cache%2Fdownload%2Fv8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
-
-validate-commit-msg@^2.14.0:
-  version "2.14.0"
-  resolved "https://registry.npm.taobao.org/validate-commit-msg/download/validate-commit-msg-2.14.0.tgz#e5383691012cbb270dcc0bc2a4effebe14890eac"
-  integrity sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=
-  dependencies:
-    conventional-commit-types "^2.0.0"
-    find-parent-dir "^0.3.0"
-    findup "0.1.5"
-    semver-regex "1.0.0"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
