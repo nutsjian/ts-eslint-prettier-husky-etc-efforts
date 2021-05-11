@@ -106,11 +106,28 @@ git commit -m "keep clam and commit"
 ```bash
 # 在新版husky中$HUSKY_GIT_PARAMS这个变量不再使用了，取而代之的是$1。在新版husky中我们的commit-msg脚本内容如下：
 
+yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
+
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 #--no-install 参数表示强制npx使用项目中node_modules目录中的commitlint包
 npx --no-install commitlint --edit $1
 
-# 这个脚本应该也能使用类似于npx husk add .husky/commit-msg "npx --no-install commitlint --edit $1"这样的命令进行添加
+# 这个脚本应该也能使用类似于npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"这样的命令进行添加
 ```
+
+
+
+lint-staged过滤文件采用glob模式。
+
+
+### 参考文章
+1. https://blog.typicode.com/husky-git-hooks-javascript-config/
+2. https://blog.csdn.net/qq_21567385/article/details/116429214
+3. https://typicode.github.io/husky/#/?id=bypass-hooks
+
+4. ESLint相关文档
+4.1 https://alloyteam.github.io/eslint-config-alloy/?language=zh-CN&rule=typescript
+4.2 https://github.com/AlloyTeam/eslint-config-alloy/blob/master/README.zh-CN.md
+4.3 https://cloud.tencent.com/developer/section/1135595

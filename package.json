@@ -15,6 +15,8 @@
     "commit": "git cz"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@types/node": "^15.0.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
@@ -31,9 +33,6 @@
     "validate-commit-msg": "^2.14.0"
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "yarn lint"
-    ],
     "**/*.{js,ts,tsx}": [
       "yarn lint:fix"
     ]
