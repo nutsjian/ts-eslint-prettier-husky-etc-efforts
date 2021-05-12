@@ -28,7 +28,7 @@ npx --no-install commitlint --edit $1
 # 这个脚本应该也能使用类似于npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"这样的命令进行添加
 ```
 
-### husky commitzen lint-staged 教程
+### husky commitzen commitlint gitmoji lint-staged 教程
 #### commitzen
 commitzen 是撰写符合 Commit Message 标准的一款工具，Commit Message 标准格式包括三个部分：Header、Body、Footer。
 ```bash
@@ -186,6 +186,33 @@ o skip) index.ts
  create mode 100644 yarn.lock
 ```
 
+#### commitlint
+代码的提交规范和规范的校验。配合 husky 在 commit-msg 前做校验。
+
+```bash
+# 1. install
+yarn add @commitlint/cli @commitlint/config-conventional -D -d
+
+# 2. touch commitlint.config.js
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [2, 'always', ['upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'revert']],
+    'type-case': [0],
+    'type-empty': [0],
+    'scope-empty': [0],
+    'scope-case': [0],
+    'subject-full-stop': [0, 'never'],
+    'subject-case': [0, 'never'],
+    'header-max-length': [0, 'always', 72]
+  }
+};
+```
+
+#### gitmoji
+```bash
+yarn add gitmoji-cli -g -d
+```
 
 #### husky v6
 
@@ -195,9 +222,13 @@ lint-staged过滤文件采用glob模式。
 
 
 ### 参考文章
-1. https://blog.typicode.com/husky-git-hooks-javascript-config/
-2. https://blog.csdn.net/qq_21567385/article/details/116429214
-3. https://typicode.github.io/husky/#/?id=bypass-hooks
+1. Commitizen 参考文档
+1.1 https://github.com/commitizen
+1.2 https://zhuanlan.zhihu.com/p/132348944
+1.3
+1.1 https://blog.typicode.com/husky-git-hooks-javascript-config/
+1.2 https://blog.csdn.net/qq_21567385/article/details/116429214
+1.3 https://typicode.github.io/husky/#/?id=bypass-hooks
 
 4. ESLint相关文档
 4.1 https://alloyteam.github.io/eslint-config-alloy/?language=zh-CN&rule=typescript
