@@ -1,34 +1,6 @@
 # ts-eslint-prettier-husky-etc-efforts
-本项目主要学习如何搭建一个 TS 项目，规范编码、GIT提交。
+本项目主要学习如何搭建一个 TS 项目，规范编码、GIT提交。通过本项目的搭建，可以学习如下的知识：husky commitzen commitlint gitmoji lint-staged。
 
-#### husky 使用
-```bash
-# 1. 在 package.json 中添加脚本："prepare": "husky install"
-npm set-script prepare "husky install"
-# 2. 执行脚本安装 husky
-yarn prepare
-# 3. 添加一个 hook
-npx husky add .husky/pre-commit "yarn test"
-# 4. make a commit
-git commit -m "keep clam and commit"
-```
-
-#### husky v6 新版使用
-```bash
-# 在新版husky中$HUSKY_GIT_PARAMS这个变量不再使用了，取而代之的是$1。在新版husky中我们的commit-msg脚本内容如下：
-
-yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
-
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-#--no-install 参数表示强制npx使用项目中node_modules目录中的commitlint包
-npx --no-install commitlint --edit $1
-
-# 这个脚本应该也能使用类似于npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"这样的命令进行添加
-```
-
-### husky commitzen commitlint gitmoji lint-staged 教程
 #### commitzen
 commitzen 是撰写符合 Commit Message 标准的一款工具，Commit Message 标准格式包括三个部分：Header、Body、Footer。
 ```bash
@@ -207,30 +179,75 @@ module.exports = {
     'header-max-length': [0, 'always', 72]
   }
 };
+
+# 3. 一般我们配合 husky 来对 git commit 的 Commit Message 做校验
+# 前提是安装好了 husky
+yarn husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'
 ```
 
 #### gitmoji
 ```bash
+# 1. 全局安装
 yarn add gitmoji-cli -g -d
+
+# 2. 在编写 Commit Message 的时候增加 emoji 信息即可
 ```
 
 #### husky v6
+husky 可以让我们向项目中方便添加 git hooks。可以通过这些 git hooks 来对代码做规范校验。
+
+```bash
+# 1. install
+yarn add husky -D -d
+# 2. 在 package.json 中添加脚本："prepare": "husky install"
+npm set-script prepare "husky install"
+# 3. 执行脚本安装 husky
+yarn prepare
+# 4. 添加一个 hook
+npx husky add .husky/pre-commit "yarn test"
+
+
+# 在新版husky中$HUSKY_GIT_PARAMS这个变量不再使用了，取而代之的是$1。在新版husky中我们的commit-msg脚本内容如下：
+yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
+
+#--no-install 参数表示强制npx使用项目中node_modules目录中的commitlint包
+npx --no-install commitlint --edit $1
+# 这个脚本应该也能使用类似于npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"这样的命令进行添加
+```
 
 #### lint-staged
-lint-staged过滤文件采用glob模式。
+用于实现每次提交只检查本次提交所修改的文件。如果不是这样的话，每次都对所有代码做编码规范校验，会大大增加校验的时间，降低开发的体验。lint-staged过滤文件采用glob模式。
 
 
-
+# husky commitzen commitlint gitmoji lint-staged
 ### 参考文章
+0. 搭建项目
+0.1 https://www.jianshu.com/p/df14afcfdb03
+
 1. Commitizen 参考文档
 1.1 https://github.com/commitizen
 1.2 https://zhuanlan.zhihu.com/p/132348944
-1.3
-1.1 https://blog.typicode.com/husky-git-hooks-javascript-config/
-1.2 https://blog.csdn.net/qq_21567385/article/details/116429214
-1.3 https://typicode.github.io/husky/#/?id=bypass-hooks
 
-4. ESLint相关文档
+2. husky 参考文档
+2.1 https://blog.typicode.com/husky-git-hooks-javascript-config/
+2.2 https://typicode.github.io/husky/#/?id=bypass-hooks
+2.3 https://blog.csdn.net/qq_21567385/article/details/116429214
+
+3. commitlint 参考文档
+3.1 https://commitlint.js.org/#/reference-examples
+3.2 https://www.cnblogs.com/qiqi715/p/12737297.html
+
+4. gitmoji 参考文档
+4.1 https://gitmoji.dev
+
+5. lint-staged 参考文档
+
+6. git 参考文档
+6.1 https://www.jianshu.com/p/a9f327da3562
+6.2 https://www.cnblogs.com/dongcanliang/p/11162235.html
+6.3 https://blog.csdn.net/qq_32452623/article/details/78417609 暂存区概念，跟 lint-staged 插件有关系
+
+4. ESLint 参考文档
 4.1 https://alloyteam.github.io/eslint-config-alloy/?language=zh-CN&rule=typescript
 4.2 https://github.com/AlloyTeam/eslint-config-alloy/blob/master/README.zh-CN.md
 4.3 https://cloud.tencent.com/developer/section/1135595
